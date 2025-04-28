@@ -14,10 +14,7 @@ body {
     border-radius: 12px;
     border: 2px solid #333;
   }
-  .box h1{
-    color:white;
-    transform: translateY(-200px);
-  }
+  
   .box .image {
     width: 100%;
     height: 100%;
@@ -32,4 +29,35 @@ body {
   }
   .hidden{
     display: none;
+}
+@media (max-width: 768px) {
+  body {
+    flex-direction: column; /* 手机上排成一列，看着更舒服 */
+    justify-content: center;
+  }
+  
+  h1 {
+    font-size: 18px; /* 标题文字变小 */
+  }
+
+  .box {
+    width: 70px; /* 方框变小 */
+    height: 70px;
+  }
+
+ 
+
+  .box .image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+  }
+
+  iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/3; /* 保持16:9或者4:3的比例，不会超出屏幕 */
+  }
 }
