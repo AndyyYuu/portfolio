@@ -61,3 +61,94 @@ body {
     aspect-ratio: 4/3; /* 保持16:9或者4:3的比例，不会超出屏幕 */
   }
 }
+
+@keyframes rainbow {
+  0% { color: #ff0000; }
+  14% { color: #ff7f00; }
+  28% { color: #ffff00; }
+  42% { color: #00ff00; }
+  57% { color: #0000ff; }
+  71% { color: #4b0082; }
+  85% { color: #9400d3; }
+  100% { color: #ff0000; }
+}
+
+.rainbow-text {
+  animation: rainbow 3s linear infinite;
+  cursor: pointer;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.8;
+    border-color: rgba(255, 0, 0, 0.8);
+    border-width: 3px;
+  }
+  14% {
+    border-color: rgba(255, 127, 0, 0.7);
+    border-width: 2.5px;
+  }
+  28% {
+    border-color: rgba(255, 255, 0, 0.6);
+    border-width: 2px;
+  }
+  42% {
+    border-color: rgba(0, 255, 0, 0.5);
+    border-width: 1.5px;
+  }
+  57% {
+    border-color: rgba(0, 0, 255, 0.4);
+    border-width: 1px;
+  }
+  71% {
+    border-color: rgba(75, 0, 130, 0.3);
+    border-width: 0.8px;
+  }
+  85% {
+    border-color: rgba(148, 0, 211, 0.2);
+    border-width: 0.5px;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+    border-color: rgba(255, 0, 0, 0);
+    border-width: 0.2px;
+  }
+}
+
+.ripple {
+  position: fixed;
+  pointer-events: none;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid;
+  animation: ripple 1.5s ease-out forwards;
+  transform-origin: center;
+  z-index: 9999;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.ripple::before,
+.ripple::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  border: 3px solid;
+  animation: ripple 1.5s ease-out forwards;
+}
+
+.ripple::before {
+  animation-delay: 0.2s;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.ripple::after {
+  animation-delay: 0.4s;
+  border-color: rgba(255, 255, 255, 0.2);
+}
